@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1302px;
+            height: 901px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.wms.js"></script>
+        <script src="data/ruta1_1.js"></script>
+        <script src="data/parcs_2.js"></script>
+        <script src="data/places_3.js"></script>
+        <script src="data/geopack_fotos_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[41.144465603861356,1.0899828874207809],[41.16522975276135,1.1290785410866246]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_MapatopogrficdeCatalunya15000_0');
+        map.getPane('pane_MapatopogrficdeCatalunya15000_0').style.zIndex = 400;
+        var layer_MapatopogrficdeCatalunya15000_0 = L.WMS.layer("http://geoserveis.icgc.cat/icc_mapesbase/wms/service?", "mtc5m", {
+            pane: 'pane_MapatopogrficdeCatalunya15000_0',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+        map.addLayer(layer_MapatopogrficdeCatalunya15000_0);
+        function pop_ruta1_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ruta1_1_0() {
+            return {
+                pane: 'pane_ruta1_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        function style_ruta1_1_1() {
+            return {
+                pane: 'pane_ruta1_1',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ruta1_1');
+        map.getPane('pane_ruta1_1').style.zIndex = 401;
+        map.getPane('pane_ruta1_1').style['mix-blend-mode'] = 'normal';
+        var layer_ruta1_1 = new L.geoJson.multiStyle(json_ruta1_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ruta1_1',
+            layerName: 'layer_ruta1_1',
+            pane: 'pane_ruta1_1',
+            onEachFeature: pop_ruta1_1,
+            styles: [style_ruta1_1_0,style_ruta1_1_1,]
+        });
+        bounds_group.addLayer(layer_ruta1_1);
+        map.addLayer(layer_ruta1_1);
+        function pop_parcs_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">sup2</th>\
+                        <td>' + (feature.properties['sup2'] !== null ? autolinker.link(feature.properties['sup2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_parcs_2_0() {
+            return {
+                pane: 'pane_parcs_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(53,142,45,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_parcs_2');
+        map.getPane('pane_parcs_2').style.zIndex = 402;
+        map.getPane('pane_parcs_2').style['mix-blend-mode'] = 'normal';
+        var layer_parcs_2 = new L.geoJson(json_parcs_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_parcs_2',
+            layerName: 'layer_parcs_2',
+            pane: 'pane_parcs_2',
+            onEachFeature: pop_parcs_2,
+            style: style_parcs_2_0,
+        });
+        bounds_group.addLayer(layer_parcs_2);
+        map.addLayer(layer_parcs_2);
+        function pop_places_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">sup2</th>\
+                        <td>' + (feature.properties['sup2'] !== null ? autolinker.link(feature.properties['sup2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_places_3_0() {
+            return {
+                pane: 'pane_places_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,60,57,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_places_3');
+        map.getPane('pane_places_3').style.zIndex = 403;
+        map.getPane('pane_places_3').style['mix-blend-mode'] = 'normal';
+        var layer_places_3 = new L.geoJson(json_places_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_places_3',
+            layerName: 'layer_places_3',
+            pane: 'pane_places_3',
+            onEachFeature: pop_places_3,
+            style: style_places_3_0,
+        });
+        bounds_group.addLayer(layer_places_3);
+        map.addLayer(layer_places_3);
+        function pop_geopack_fotos_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Arquitecte</th>\
+                        <td>' + (feature.properties['Arquitecte'] !== null ? autolinker.link(feature.properties['Arquitecte'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Adreça</th>\
+                        <td>' + (feature.properties['Adreça'] !== null ? autolinker.link(feature.properties['Adreça'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Any</th>\
+                        <td>' + (feature.properties['Any'] !== null ? autolinker.link(feature.properties['Any'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popup'] !== null ? autolinker.link(feature.properties['popup'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_geopack_fotos_4_0() {
+            return {
+                pane: 'pane_geopack_fotos_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/camera.svg',
+            iconSize: [30.4, 30.4]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_geopack_fotos_4');
+        map.getPane('pane_geopack_fotos_4').style.zIndex = 404;
+        map.getPane('pane_geopack_fotos_4').style['mix-blend-mode'] = 'normal';
+        var layer_geopack_fotos_4 = new L.geoJson(json_geopack_fotos_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_geopack_fotos_4',
+            layerName: 'layer_geopack_fotos_4',
+            pane: 'pane_geopack_fotos_4',
+            onEachFeature: pop_geopack_fotos_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_geopack_fotos_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_geopack_fotos_4);
+        map.addLayer(layer_geopack_fotos_4);
+        setBounds();
+        resetLabels([layer_parcs_2]);
+        map.on("zoomend", function(){
+            resetLabels([layer_parcs_2]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_parcs_2]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_parcs_2]);
+        });
+        </script>
+    </body>
+</html>
