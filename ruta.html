@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+<!-- He utilitzat les etiquetes meta per donar més informació de la meva pàgina web
+Amb l'etiqueta <meta name="viewport"...> se li ordena al navegador instruccions sobre com controlar les dimensions i l'escala de la pàgina-->
+
+		<meta charset="utf-8"/>
+		<title>Delta de l'Ebre</title>
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="description" content="Aquesta és la meva primera pàgina web de l'assignatura WebGis"/>
+		<meta name="author" content="Roger Agustench, alumne Universitat Rovira i Virgili"/>
+		
+<!--Links dels CSS-->
+
+		<link rel="stylesheet" href="css/style_ruta.css">
+
+		<link rel="stylesheet" href="css/font.css">
+
+<!--Links del Mermaid-->
+
+		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        <script>mermaid.flowchartConfig = {width: 100% } </script>
+
+<!--Enllaç que conecta al footer per a que torni a l'inici de la pàgina-->
+
+		<a name="header"></a>
+
+
+	</head>
+	<body>
+
+<!--
+	Primer he realitzat una divisió anomenada "group" on s'inclou tot el body i ens serveix de contendidor per incloure tot el contingut de la pàgina web-->
+
+<!--
+Després hi ha la divisió de tres classes, 
+	- La primera, el header engloba la capçalera amb el títol i el subtítol.
+	- La segona, el topnav, que correspon a la barra de navegació amb diferents enllaços a les altres pàgines de la web, i dins d'aquesta divisió, n'hi ha una altra que correspon al logo de la pàgina. 
+-->
+
+	<div class="group">
+
+			<div class="header">
+
+  					<h1>Ruta Modernista</h1>
+  						<h2> Ruta Modernista i principals Zones Verdes de Reus</h2>
+
+			</div> 
+
+			<div class="topnav">
+					
+
+					<ul>
+						<li><a class="select" href="index.html"target="blank">INICI</a></li>
+						<li><a class="select" href="imatges.html"target="blank">FOTOGRAFIES</a></li>
+						<li><a class="select" href="mapa.html"target="blank">MAPA</a></li>
+						<li> <a class="select" href="municipis.html"target="blank">ALTRES MUNICIPIS</a></li>
+						<li> <a class="select" href="ruta.html"target="blank">RUTA MODERNISTA</a></li>
+						<li><a class="select" href="contacte.html"target="blank">PÀGINA DE CONTACTE</a></li>
+			
+					</ul>
+
+			</div>
+
+
+<!--
+	En el div id=map he enllaçat el mapa realitzat amb Qgis
+-->
+			<div id="map">
+				 <iframe
+      				style="height: 100%; width:100%; "
+        			src=qgis2web/ruta.html>
+      			</iframe>
+				
+			</div>
+
+<!--
+	En el div id class=mermaid hi ha el codi treballat en el Mermaid Live Editor
+-->
+
+		<div class="mermaid">
+
+			graph LR
+		    A[ZONES VERDES<br>RUTA MODERNISTA]
+		    A-->B[Zones Verdes]
+		    B-->D(Parcs i Places)
+		   
+		    A-->C[Habitatges més importants]
+		    C-->E(Casa Navàs)
+		    C-->F(Casa Gasull)
+		    C-->G(Casa Rull)
+		    C-->H(Casa Pinyol)
+		    C-->I(Casa Anguera)
+		    C-->J(Casa Querol)
+		    C-->K(Casa Serra)
+		    C-->L(Casa Marco)
+		    C-->M(Casa Tarrats)
+    
+				A:::class1
+				    classDef class1 fill:#55ea55
+				    classDef class1 stroke:#333
+
+				B:::class2
+				classDef class2 fill:#9acd32
+				classDef class2 stroke: #333
+
+				C:::class3
+				classDef class3 fill:#9acd32
+				classDef class3 stroke: #333
+
+				D:::class4
+				classDef class4 fill:#baffc9
+				classDef class4 stroke: #333
+
+				E:::class5
+				classDef class5 fill:#bae1ff
+				classDef class5 stroke: #333
+
+				F:::class5
+				classDef class5 fill:#bae1ff 
+				classDef class5 stroke: #333
+
+				G:::class5
+				classDef class5 fill:#bae1ff 
+				classDef class5 stroke: #333
+
+				H:::class5
+				classDef class5 fill:#bae1ff
+				classDef class5 stroke: #333
+
+				I:::class5
+				classDef class5 fill:#bae1ff
+				classDef class5 stroke: #333
+
+				J:::class5
+				classDef class5 fill:#bae1ff
+				classDef class5 stroke: #333
+
+				K:::class5
+				classDef class5 fill:#bae1ff 
+				classDef class5 stroke: #333
+
+				L:::class5
+				classDef class5 fill:#bae1ff 
+				classDef class5 stroke: #333
+
+				M:::class5
+				classDef class5 fill:#bae1ff
+				classDef class5 stroke: #333
+
+
+		</div>
+
+<!-- 
+Per últim he realitzat el footer on he inclòs diferents enllaços a xarxes socials, on després amb el CSS li atribueixo una icona.
+També hi ha els drets de copyright i un enllaç per tornar a l'inici de la pàgina.
+-->
+
+			<div class="footer">
+
+				<a href="https://twitter.com/Lord_Agustench"target="blank" class="icon-twitter"></a>
+				<a href="https://www.instagram.com/lord_agustench/"target="blank" class="icon-instagram"></a>
+
+					<p class="copy">&copy; Agustench Roger, 2021 - Tots els drets reservats</p>
+
+			<div class="top">
+
+				<a href="#header"class="lletra_top">Inici pàgina </a>
+
+			</div>
+
+			</div>
+
+			</div>
+
+	</body>
+
+</html>

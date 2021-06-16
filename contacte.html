@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+
+<!-- He utilitzat les etiquetes meta per donar més informació de la meva pàgina web
+Amb l'etiqueta <meta name="viewport"...> se li ordena al navegador instruccions sobre com controlar les dimensions i l'escala de la pàgina-->
+
+		<meta charset="utf-8"/>
+		<title>Contacte</title>
+		<meta name="description" content="Aquesta és la meva primera pàgina web de l'assignatura WebGis"/>
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+		<meta name="author" content="Roger Agustench, alumne Universitat Rovira i Virgili"/>
+		
+<!--Links dels CSS-->
+
+		<link rel="stylesheet" href="css/style_contacte.css">
+
+		<link rel="stylesheet" href="css/font.css">
+
+<!--Enllaç que conecta al footer per a que torni a l'inici de la pàgina-->
+
+		<a name="header"></a>
+
+	</head>
+
+	<body>
+
+<!--
+	Primer he realitzat una divisió anomenada "group" on s'inclou tot el body i ens serveix de contendidor per incloure tot el contingut de la pàgina web-->
+
+<!--
+Després hi ha la divisió de tres classes, 
+	- La primera, el header engloba la capçalera amb el títol i el subtítol.
+	- La segona, el topnav, que correspon a la barra de navegació amb diferents enllaços a les altres pàgines de la web, i dins d'aquesta divisió, n'hi ha una altra que correspon al logo de la pàgina. 
+-->
+
+	<div class="group">
+
+				<div class="header">
+  					<h1>FORMULARI DE CONTACTE</h1>
+  						
+				</div> 
+
+				<div class="topnav">
+					
+
+					<ul>
+						<li><a class="select" href="index.html"target="blank">INICI</a></li>
+						<li> <a class="select" href="imatges.html"target="blank">FOTOGRAFIES</a></li>
+						<li> <a class="select" href="mapa.html"target="blank">MAPA</a></li>
+						<li> <a class="select" href="municipis.html"target="blank">ALTRES MUNICIPIS</a></li>
+						<li> <a class="select" href="ruta.html"target="blank">RUTA MODERNISTA</a></li>
+						<li> <a class="select" href="contacte.html"target="blank">PÀGINA DE CONTACTE</a></li>
+			
+					</ul>
+			</div>
+
+<!-- formulari de contacte -->
+
+    	<form action="">
+     		<h2> CONTACTE </h2>
+		     	<input type="text" name="nom" placeholder="El vostre nom">
+		     	<input type="text" name="correu" placeholder="Correu electrònic">
+		     	<input type="text" name="telefono" placeholder="Assumpte">
+		     	<textarea name="missatge" placeholder="El vostre missatge"></textarea>
+		     	<input type="button" value="ENVIAR" id="boto">
+     	</form>
+
+<!-- 
+Per últim he realitzat el footer on he inclòs diferents enllaços a xarxes socials, on després amb el CSS li atribueixo una icona.
+També hi ha els drets de copyright i un enllaç per tornar a l'inici de la pàgina.
+-->
+
+		<div class="footer">
+
+			<a href="https://twitter.com/Lord_Agustench"target="blank" class="icon-twitter"></a>
+			<a href="https://www.instagram.com/lord_agustench/"target="blank" class="icon-instagram"></a>
+
+				<p class="copy">&copy; Agustench Roger, 2021 - Tots els drets reservats</p>
+
+		<div class="top">
+
+			<a href="#header"class="lletra_top">Inici pàgina </a>
+
+		</div>
+	
+		</div>
+
+		</div>
+		
+	</body>
+</html>

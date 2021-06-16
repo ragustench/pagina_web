@@ -1,0 +1,214 @@
+/* Estils CSS responsive */
+
+@media (max-width:480px){
+	form{
+		width:100%
+	}
+}
+
+@media only screen and (max-width: 1196px){
+
+	.topnav ul li {
+		width:100%;
+		padding:10px;
+		text-align:left;
+	}
+	
+	.topnav li a{
+		display:block;
+	}
+
+	
+	.topnav img {
+ 		display: none;
+	 }
+
+}
+
+/* Estils que afecten a tota la pàgina web */
+
+* {
+font-family: verdana;
+box-sizing:border-box; 
+}
+
+/* Estils que afecten a tots els links la pàgina web */
+
+a {
+	color:black;
+	font-weight:bold;
+	color:#024B0F;
+}
+
+/* Estils que afecten al body (cos) de la pàgina web */
+
+body{
+	background:#B4C9A6;
+	margin:0px 0px;
+	padding:0px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+/* Estils que afecten a la classe group */
+
+.group {
+	margin:0px;
+	background: #9acd32
+}
+
+/* Estils que afecten a la classe header (titòls,subtitòls) */
+
+.header {
+	background-size:cover;
+	background-image: url(../images/trenca.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color:#f8f8ff;
+	border: 3px solid #132F02;
+	height: 600px;
+	margin:auto;
+}
+.header h1{
+	font-size: 85px;
+	text-align: center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	letter-spacing: 1.5px;
+	text-shadow: 0.1em 0.1em #333
+}
+
+.header h2{
+	font-size: 55px;
+	text-align: center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color:white;
+	letter-spacing: 1.5px;
+	text-shadow: 0.1em 0.1em #333
+}
+
+/* Estils que afecten a la classe topnav (enllaços, imatge, logo) */
+
+.topnav {
+	background:#104e8b;
+	padding:4px;
+	margin-right:auto;
+	border: 1px solid #000000;
+	width:100%;
+}
+
+.topnav li a{
+	font-size: 20px;
+	color:#000000;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	text-decoration:none;
+	background:#7bcfff;
+	padding: 4px 4px;
+	border-radius:30px;
+	margin:0px;
+	transition: all 0.5s linear;
+}
+
+.topnav li a:hover, .select{
+	background:#000000;
+	color:white;
+}
+
+.topnav ul li {
+	list-style:none;
+	padding:4px;
+	font: bold 18px "Lora", serif;
+	display: inline-block;
+	text-align: left;
+}
+ 
+ .topnav img {
+ 	border: 2px solid black; float: right;
+ 	width:60px;
+ 	height:60px;
+ }
+
+
+/* Estils que afecten al formulari de contacte */
+
+form{
+	width:650px;
+	margin:auto;
+	background:#7bcfff;
+	padding:10px 20px;
+	box-sizing: border-box;
+	margin-top:30px;
+	margin-bottom:30px;
+	border-radius: 25px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Estils que afecten a tots els h2 de la pàgina web*/
+
+h2{
+	color:#000000;
+	text-align:center;
+	margin:0;
+	font-size:35px;
+	margin-bottom:20px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input,textarea{
+	width:100%;
+	margin-bottom:20px;
+	padding:7px;
+	box-sizing:border-box;
+	font-size:17px;
+	border:none;
+}
+
+textarea{
+	min-height:100px;
+	max-height:200px;
+	max-width:100%;
+}
+
+/* Estils per al botó del formulari*/
+
+#boto{
+	background:#104e8b;
+	color:white;
+	padding:20px;
+	border-radius: 25px;
+}
+
+#boto:hover{
+	cursor:pointer;
+
+}
+
+/* Estils que afecten al footer*/
+
+.footer{
+	clear:both;
+	padding:10px 10px;
+	background: #104e8b;
+	color:#fff;
+	text-align:center;
+}
+
+.footer [class^="icon-"]{
+	font-family: "iconos-de-prova";
+	display:inline-block;
+	color:rgb(0, 0, 0);
+	text-decoration:none;
+	font-size:30px;
+	padding:10px;
+	background: white;
+	border-radius:50%;
+	width:50px;
+	height:50px;
+	line-height:40px;
+}
+
+.top a{
+	font-size: 13px;
+	color:white;
+	font-weight:bold;
+}

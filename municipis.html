@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+
+<!-- He utilitzat les etiquetes meta per donar més informació de la meva pàgina web
+Amb l'etiqueta <meta name="viewport"...> se li ordena al navegador instruccions sobre com controlar les dimensions i l'escala de la pàgina-->
+
+      <meta charset="utf-8" />
+      <title>Meteorologia</title>
+      <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+      <meta name="description" content="Aquesta és la meva primera pàgina web de l'assignatura WebGis"/>
+      <meta name="author" content="Roger Agustench, alumne Universitat Rovira i Virgili"/>
+
+    <!--Links dels CSS-->
+
+    <link rel="stylesheet" href="css/css_municipis.css" />
+
+    <link rel="stylesheet" href="css/font.css" />
+
+    <!--Enllaç que conecta al footer per a que torni a l'inici de la pàgina-->
+
+    <a name="header"></a>
+
+    <!--Links del mapa -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  
+  </head>
+
+
+
+  <body>
+
+ <!--
+  Primer he realitzat una divisió anomenada "group" on s'inclou tot el body i ens serveix de contendidor per incloure tot el contingut de la pàgina web-->
+
+<!--
+Després hi ha la divisió de tres classes, 
+  - La primera, el header engloba la capçalera amb el títol i el subtítol.
+  - La segona, el topnav, que correspon a la barra de navegació amb diferents enllaços a les altres pàgines de la web, i dins d'aquesta divisió, n'hi ha una altra que correspon al logo de la pàgina. 
+-->
+
+<div class="group">
+
+    <div class="header">
+
+        <h1>ALTRES MUNICIPIS AMB EDIFICACIONS MODERNISTES</h1>
+          
+    </div>
+
+    <div class="topnav">
+        <ul>
+          <li><a class="select" href="index.html" target="blank">INICI</a></li>
+          <li><a class="select" href="imatges.html" target="blank">FOTOGRAFIES</a></li>
+          <li><a class="select" href="mapa.html" target="blank">MAPA</a></li>
+          <li><a class="select" href="#" target="blank">ALTRES MUNICIPIS</a></li>
+          <li> <a class="select" href="ruta.html"target="blank">RUTA MODERNISTA</a></li>
+          <li><a class="select" href="contacte.html" target="blank">PÀGINA DE CONTACTE</a></li>
+
+        </ul>
+
+
+    </div>
+
+
+<!-- S'ha creat una secció amb l'objectiu de mostrar les dades obtingudes de l'API.
+-->
+
+      <section class="seccio1">
+
+        <h1>Altres municipis amb edificis construits durant el periode del Modernisme a Catalunya</h1>
+
+      </section>
+
+      <div class="descripcio">
+        <p> Si t'ha agradat <b>La Ruta Modernista de Reus</b>, a Catalunya hi ha altres municipis amb edificis modernistes.Per poder trobars els municipis has d'introduir a la barra del buscador el <b>codi postal</b> del municipi que t'interessi.</p>
+        <h3> CODIS POSTAL </h3>
+        
+        <ul>
+          <li>Alt Camp</li>
+          <ul>
+          <li><b>Valls</b>: 1 edifici (43800)</li>
+          <li><b>Nulles</b>: 1 edifici (43887)</li>
+          </ul>
+          <li>Alt Penedès</li>
+          <ul>
+          <li><b>Vilafranca del Penedès</b>: 15 edificis (08720)</li>
+          </ul>
+          <li>Bages</li>
+          <ul>
+          <li><b>Manresa</b>: 1 edifici (08241)</li>
+          </ul>
+          <li>Barcelonès</li>
+          <ul>
+          <li><b>Barcelona</b>: 107 edificis (08008)</li>
+          </ul>
+          <li>Conca de Barberà</li>
+          <ul>
+          <li><b>L’Espluga de Francolí</b>: 1 edifici (43440)</li>
+          </ul>
+          <li>Garraf </li>
+          <ul>
+          <li><b>Sitges</b>: 5 edificis (08401)</li>
+          </ul>
+          <li>Maresme</li>
+<ul>
+<li><b>Mataró</b>: 2 edificis (08302)</li>
+</ul>
+<li>Priorat</li>
+<ul>
+<li><b>Falset</b>: 1 edifici (43730)</li>
+</ul>
+<li>Terra Alta</li>
+<ul>
+<li><b>Pinell de Brai</b>: 1 edifici (43594)</li>
+</ul>
+<li>Vallès Occidental</li>
+<ul>
+<li><b>Terrassa</b>: 3 edificis (08221)</li>
+</ul>
+<li>Vallès Oriental</li>
+<ul>
+<li><b>Cardedeu</b>: 1 edifici (08440)</li>
+<li><b>El Figaró</b>: 1 edifici (08590)</li>
+<li><b>Granollers</b>: 3 edificis (08401)</li>
+<li><b>L’Ametlla del Vallès</b>: 2 edificis (08480)</li>
+<li><b>La Garriga</b>: 2 edificis (08530)</li>
+</ul>
+
+           
+          
+        </ul>
+
+      </div>
+
+
+      <!--Secció on s'introdueix el codi postal per realitzar la cerca -->
+
+      <input type="text" id="text_cp" />
+
+      <!--Botó per realitzar la cerca  -->
+
+      <input type="button" value="Click" id="the_button" />
+
+
+<!--Aquí he aplicat el mapa a partir del open street map amb Java Script, he seguit el procediment del professor i d'algunes indicacions de la propia web d'open street map per poder realitzar-ho correctament. -->
+
+      <div id="map"></div>
+
+      <script>
+        var map = L.map("map", { center: [41.826237, 1.541554], zoom: 8 });
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="http://' + 'www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+      </script>
+
+
+      <script>
+        //
+        function pintar_latitud(latitud, longitud) {
+          map.flyTo([latitud, longitud], 11);
+        }
+
+        function ficar_pin(latitud, longitud, name) {
+
+          map.flyTo([latitud,longitud],11);
+          L.marker([latitud,longitud]).addTo(map)
+          .bindPopup(name)
+          .openPopup();
+        }
+
+      </script>
+
+
+      <script>
+        document.getElementById("the_button").addEventListener("click", () => {
+
+          var cp = document.getElementById("text_cp").value;
+
+          var url =
+            "http://api.openweathermap.org/data/2.5/weather?zip=" + cp + ",es&units=metric&lang=ca&appid=d887814b738f4ad3816e2a128cd62790";
+
+          console.log(url);
+
+      ///Crida de javascript en el meu HTML, a partir del FETCH////
+          
+          fetch(url)
+
+            .then((resposta) => resposta.json())
+            .then((json) => {
+
+              html = "";
+
+              ////// En aquests fiquem la fila de la taula\\\\\\
+
+
+              const name = json.name;
+              const description = json.weather[0].description;
+              const temp = json.main.temp;
+              const temp_min = json.main.temp_min;
+              const temp_max = json.main.temp_max;
+              const humidity = json.main.humidity;
+              const lat = json.coord.lat;
+              const lon = json.coord.lon;
+
+              html += "<tr>";
+              html += "<td> " + name + " </td>";
+              html += "<td> " + description + " </td>";
+              html += "<td> " + temp + " </td>";
+              html += "<td> " + temp_min + " </td>";
+              html += "<td> " + temp_max + "</td>";
+              html += "<td> " + humidity + " </td>";
+              html += '<td> <input value ="Latitud" type="button" onClick= "pintar_latitud('+lat+','+lon+');"></td>';
+              html += "</tr>";
+
+              ////// En aquest fiquem un pin al mapa\\\\\\
+
+              ficar_pin(lat,lon,name);
+
+
+              document.getElementById("dades-taula").innerHTML = html;
+            })
+
+            .catch((error) => console.log(error));
+        });
+      </script>
+
+<!-- 
+Per últim he realitzat el footer on he inclòs diferents enllaços a xarxes socials, on després amb el CSS li atribueixo una icona.
+També hi ha els drets de copyright i un enllaç per tornar a l'inici de la pàgina.
+-->
+      
+      <div class="footer">
+        <a href="https://twitter.com/Lord_Agustench"target="blank" class="icon-twitter"></a>
+				<a href="https://www.instagram.com/lord_agustench/"target="blank" class="icon-instagram"></a>
+
+					<p class="copy">&copy; Agustench Roger, 2021 - Tots els drets reservats</p>
+
+
+        <div class="top">
+          <a href="#header" class="lletra_top">Inici pàgina </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
